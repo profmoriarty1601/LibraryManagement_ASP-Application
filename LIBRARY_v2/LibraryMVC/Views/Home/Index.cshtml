@@ -1,0 +1,33 @@
+﻿@{
+    ViewBag.Title = "Home Page";
+}
+
+<main>
+    <section class="row" aria-labelledby="aspnetTitle">
+        <h1 id="title">LIBRARY MANAGEMENT SYSTEM</h1>
+        <p>
+            MVC URL : https://localhost:44326/Admin/GetAdmins
+        </p>
+        <p>
+            API URL : https://localhost:44368/api/UserAdminAPI/GetAdmins
+        </p>
+    </section>
+    <br />
+    <br />
+    <div class="row">
+        <section class="col-md-6" aria-labelledby="AdminLog">
+            <h2 id="AdminLog">Login as Admin</h2>
+            <p>
+                Here, user logs in as Admin User with proper credentials.
+            </p>            
+            <p><a class="btn btn-outline-dark" href="https://localhost:44326/Admin/AdminLogin">Log In &raquo;</a></p>
+        </section>
+        <section class="col-md-6" aria-labelledby="StudentLog">
+            <h2 id="StudentLog">Login as Student</h2>
+            <p>
+                Here, user logs in as Student User with proper credentials.
+            </p>
+            <p><a class="btn btn-outline-dark" href="https://localhost:44326/Student/StudentLogin">Log In &raquo;</a></p>
+        </section>
+    </div>
+</main>

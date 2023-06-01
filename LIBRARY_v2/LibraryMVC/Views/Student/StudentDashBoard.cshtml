@@ -1,0 +1,41 @@
+﻿@model LibraryMVC.Models.UserModel
+
+@{
+    ViewBag.Title = "StudentDashBoard";
+}
+
+<h2>Student DashBoard</h2>
+
+<fieldset>
+
+    <div class="row">
+        <div class="col-md-12">
+            <div class="form-group">
+                @Html.Raw(@ViewBag.Alert.Success)
+            </div>
+        </div>
+    </div>
+
+    <legend> Student Details are displayed here ... </legend>
+
+    @if (Session["UserName"] != null && Session["UserPassword"] != null)
+    {
+        <text>
+            Welcome Student User : @Session["UserName"].ToString()
+        </text>
+
+        <br />
+        <br />
+
+        <h5>Get Books List</h5>
+
+        <form action="StudentDashBoard/GetAllBooks">
+            <input class="btn-outline-primary"
+                   type="submit"
+                   onclick="parent.location='<%: Url.Action(" GetAllStudents", "Student/StudentDashBoard" ) %>';
+            />
+        </form>
+
+    }
+</fieldset>  
+
