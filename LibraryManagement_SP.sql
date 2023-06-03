@@ -112,8 +112,70 @@ END;
 
 EXEC LOGIN_STUDENT_SP
 @StudentUsername='jacob',
-@StudentPassword='sdffd';
+@StudentPassword='pass2';
 
 
 
+/******************************************/
+/* CRUD Operations for User Type Student */
+/****************************************/
+
+/*
+	'A' : add new student
+	'B' : update student password
+	'C' : toggle isActive for student
+	'D' : assign books to student
+*/
+
+CREATE PROCEDURE STUDENT_CRUD_SP
+@action varchar(10)=NULL,
+@username varchar(15)=NULL,
+@password varchar(15)=NULL
+AS
+BEGIN
+	IF @action='A'
+		INSERT INTO SnehalUser VALUES (@username, @password, TRUE, 2) 
+END
+BEGIN
+	IF @action='B'
+		UPDATE SnehalUser SET UserPassword=@password
+		WHERE UserName=@username
+END
+BEGIN
+	IF @action='C'
+		UPDATE SnehalUser SET IsActive = ~IsActive
+		WHERE UserName=@username AND UserPassword=@password
+END
+
+
+
+/******************************************/
+/* CRUD Operations for Books */
+/****************************************/
+
+/*
+	'A' : add new book
+	'B' : update book details
+	'C' : toggle isActive for student
+	'D' : assign books to student
+
+
+CREATE PROCEDURE BOOKS_CRUD_SP
+@action varchar(10)=NULL,
+@bookname 
+AS
+BEGIN
+	*/
+
+/* Update books count */
+CREATE PROCEDURE UPDATE_BOOK_COUNT_ByOne
+@bookId
+AS
+BEGIN
+	UPDATE SnehalBooksList
+	SET BookQty=(BookQty+1)
+	WHERE BookId=@bookId 
+END;
+
+EXEC UPDATE_BOOK_COUNT_ByOne @bookId=1;
 

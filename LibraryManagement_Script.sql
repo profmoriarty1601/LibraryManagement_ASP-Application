@@ -5,6 +5,8 @@ create table SnehalUserType
 	UserTypeName varchar(15) NOT NULL
 );
 
+ALTER TABLE SnehalUserType
+ADD CONSTRAINT user_type_uniq UNIQUE(UserTypeName);
 
 create table SnehalUser
 (
@@ -14,6 +16,9 @@ create table SnehalUser
 	IsActive bit Not Null,
 	UserTypeId int foreign key references SnehalUserType(UserTypeId)
 );
+
+ALTER TABLE SnehalUser
+ADD CONSTRAINT user_creds_uniq UNIQUE(UserName, UserPassword);
 
 create table SnehalBooksList
 (
